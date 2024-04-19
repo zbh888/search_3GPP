@@ -7,22 +7,4 @@
    ```
 3. convert files to docx
    ```
-   lowriter --convert-to docx *.doc
-   ```
-
-```{bash}
-#!/bin/bash
-
-echo "Directory: $(pwd)"
-
-for dir in */; do
-    cd "$dir" || exit
-    for dirr in */; do
-        cd "$dirr" || exit
-        echo "Directory: $(pwd)"
-        lowriter --convert-to docx *.doc
-        cd ..
-    done
-    cd ..
-done
-```
+   Inside `./3GPP`, run `convert.sh`

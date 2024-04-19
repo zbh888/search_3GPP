@@ -20,6 +20,7 @@ for dir in */; do
     for dirr in */; do
         cd "$dirr" || exit
         echo "Directory: $(pwd)"
+        lowriter --convert-to docx *.doc
         cd ..
     done
     cd ..

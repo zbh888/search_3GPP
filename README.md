@@ -5,3 +5,7 @@
    ```
    find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`" "$filename"; done;
    ```
+3. convert files to docx
+   ```
+   lowriter --convert-to docx *.doc
+   ```

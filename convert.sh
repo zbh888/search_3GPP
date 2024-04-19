@@ -8,6 +8,7 @@ for dir in */; do
         cd "$dirr" || exit
         echo "Directory: $(pwd)"
         lowriter --convert-to docx *.doc
+        rm -rf *zip *.doc
         cd ..
     done
     cd ..

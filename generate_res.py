@@ -1,3 +1,5 @@
+import pickle
+
 with open('res.pkl', 'rb') as inp:
     d = pickle.load(inp)
 print(f"Seach for keyword '{d['keyword']}'")

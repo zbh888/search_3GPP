@@ -35,14 +35,19 @@ def search_3GPP(key_word):
             Spath = os.path.join(Relpath, S)
             Files = [f for f in os.listdir(Spath) if f.find('.docx')!=-1]
             for F in Files:
+                print(f"Search in {R}, {S}, {F}")
                 Fpath = os.path.join(Spath, F)
                 try:
                     result = search_one_file(Fpath, key_word)
                     if len(result) > 0:
                         dict[(R, S, F)] = result
                         file_count += 1
+                        print(f"+++++ Positive in {Fpath}")
                 except:
                     print("An exception occurred when handling " + Fpath)
     dict['filecount'] = file_count
     with open('res.pkl', 'wb') as outp:
         pickle.dump(dict, outp, pickle.HIGHEST_PROTOCOL)
+    
+            
+search_3GPP("signalling,storm|signaling,storm")

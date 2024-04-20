@@ -22,6 +22,7 @@ def search_one_file(file_path, key_word):
     return res
 
 def search_3GPP(key_word):
+    print("Starting searching")
     dict = {}
     dict["keyword"] = key_word
     root = './3GPP'
@@ -32,10 +33,10 @@ def search_3GPP(key_word):
         Relpath = os.path.join(root, R)
         Series = [d for d in os.listdir(Relpath) if os.path.isdir(os.path.join(Relpath, d))]
         for S in Series:
+            print(f"Search in {R}, {S}")
             Spath = os.path.join(Relpath, S)
             Files = [f for f in os.listdir(Spath) if f.find('.docx')!=-1]
             for F in Files:
-                print(f"Search in {R}, {S}, {F}")
                 Fpath = os.path.join(Spath, F)
                 try:
                     result = search_one_file(Fpath, key_word)
@@ -50,4 +51,4 @@ def search_3GPP(key_word):
         pickle.dump(dict, outp, pickle.HIGHEST_PROTOCOL)
     
             
-search_3GPP("signalling,storm|signaling,storm")
+search_3GPP("signalling,load|signaling,load|network,congest|flood,control plane|control plane,congest|storm|cp,flood|cp,congest|cp,load|control plane,load")
